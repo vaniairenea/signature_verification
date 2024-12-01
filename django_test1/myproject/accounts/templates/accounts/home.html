@@ -1,0 +1,27 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Signature Verification using Deep Learning</h2>
+
+        {% if user.is_authenticated %}
+            <p>You've successfully logged in!</p>
+            <p>To upload images for signature verification, press the button below:</p>
+            <!-- Button to redirect to the image upload page -->
+            <a href="{% url 'upload_image' %}">
+                <button class="upload-btn">Upload Image</button>
+            </a>
+        {% else %}
+            <p>Please log in to upload images.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
